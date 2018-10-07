@@ -31,7 +31,7 @@ uint16_t BQ27441_SWI2C::readRegister(uint8_t regAddress){
   return result;
 }
 
-uint16_t BQ27441_SWI2C::readDeviceID() {
+uint16_t BQ27441_SWI2C::getControlWord(uint8_t subCommand) {
   uint16_t result;
 
   myDevice->startBit();
@@ -39,14 +39,12 @@ uint16_t BQ27441_SWI2C::readDeviceID() {
   myDevice->checkAckBit();
   myDevice->writeRegister(BQ27441_COMMAND_CONTROL);   // Control command
   myDevice->checkAckBit();
-  myDevice->writeByte(BQ27441_CONTROL_DEVICE_TYPE);   // Device type LSB
+  myDevice->writeByte(subCommand);   // Device type LSB
   myDevice->checkAckBit();
   myDevice->writeByte(0);                             // Device type MSB
   myDevice->checkAckBit();
   myDevice->stopBit();
   myDevice->read2bFromRegister(BQ27441_COMMAND_CONTROL, &result);
-
-  // result = ((result & 0xFF)<<8) | ((result & 0xFF00) >> 8);
 
   return result;
 }
