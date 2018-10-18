@@ -35,21 +35,23 @@ uint16_t BQ27441_SWI2C::getTemperature() {  // Result in 0.1 Kelvins
   return result;
 }
 
-uint16_t BQ27441_SWI2C::getTemperatureC() {  // Result in 0.1 Celcius
-  uint16_t result;
+int16_t BQ27441_SWI2C::getTemperatureC() {  // Result in 0.1 Celcius
+  int16_t result;
+  uint16_t raw;
 
-  myDevice->read2bFromRegister(BQ27441_COMMAND_TEMP, &result);
+  myDevice->read2bFromRegister(BQ27441_COMMAND_TEMP, &raw);
   // Convert to 0.1 Celsius using integer math
-  result = result - 2731;
+  result = (int16_t) raw - 2731;
   return result;
 }
 
-uint16_t BQ27441_SWI2C::getTemperatureF() {  // Result in 0.1 Fahrenheit
-  uint16_t result;
+int16_t BQ27441_SWI2C::getTemperatureF() {  // Result in 0.1 Fahrenheit
+  int16_t result;
+  uint16_t raw;
 
-  myDevice->read2bFromRegister(BQ27441_COMMAND_TEMP, &result);
+  myDevice->read2bFromRegister(BQ27441_COMMAND_TEMP, &raw);
   // Convert to 0.1 Fahrenheit using integer math
-  result = (((result - 2731) * 9) / 5) + 320;
+  result = ((((int16_t)raw - 2731) * 9) / 5) + 320;
   return result;
 }
 
@@ -99,28 +101,28 @@ int16_t  BQ27441_SWI2C::getAverageCurrent() {
   uint16_t result;
 
   myDevice->read2bFromRegister(BQ27441_COMMAND_AVG_CURRENT, &result);
-  return result;
+  return (int16_t) result;
 }
 
 int16_t  BQ27441_SWI2C::getStandbyCurrent() {
   uint16_t result;
 
   myDevice->read2bFromRegister(BQ27441_COMMAND_STDBY_CURRENT, &result);
-  return result;
+  return (int16_t) result;
 }
 
 int16_t  BQ27441_SWI2C::getMaxLoadCurrent() {
   uint16_t result;
 
   myDevice->read2bFromRegister(BQ27441_COMMAND_MAX_CURRENT, &result);
-  return result;
+  return (int16_t) result;
 }
 
 int16_t  BQ27441_SWI2C::getAveragePower() {
   uint16_t result;
 
   myDevice->read2bFromRegister(BQ27441_COMMAND_AVG_POWER, &result);
-  return result;
+  return (int16_t) result;
 }
 
 uint16_t BQ27441_SWI2C::getStateOfCharge() {
@@ -138,20 +140,22 @@ uint16_t BQ27441_SWI2C::getInternalTemperature() {   // Result in 0.1 Kelvins
 }
 
 int16_t  BQ27441_SWI2C::getInternalTemperatureC() {  // Result in 0.1 Celsius
-  uint16_t result;
+  int16_t result;
+  uint16_t raw;
 
-  myDevice->read2bFromRegister(BQ27441_COMMAND_INT_TEMP, &result);
+  myDevice->read2bFromRegister(BQ27441_COMMAND_INT_TEMP, &raw);
   // Convert to 0.1 Celsius using integer math
-  result = result - 2731;
+  result = (int16_t) raw - 2731;
   return result;
 }
 
 int16_t  BQ27441_SWI2C::getInternalTemperatureF() {  // Result in 0.1 Fahrenheit
-  uint16_t result;
+  int16_t result;
+  uint16_t raw;
 
-  myDevice->read2bFromRegister(BQ27441_COMMAND_INT_TEMP, &result);
+  myDevice->read2bFromRegister(BQ27441_COMMAND_INT_TEMP, &raw);
   // Convert to 0.1 Fahrenheit using integer math
-  result = (((result - 2731) * 9) / 5) + 320;
+  result = ((((int16_t)raw - 2731) * 9) / 5) + 320;
   return result;
 }
 

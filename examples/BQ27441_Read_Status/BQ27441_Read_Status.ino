@@ -75,10 +75,10 @@ void printBatteryStats()
   unsigned int capacity =     myBQ27441.getRemainingCapacityFiltered();
   int          power =        myBQ27441.getAveragePower();
   int          health =       myBQ27441.getStateOfHealth();
-  int          intTempK =     myBQ27441.getInternalTemperature();   // Units of 0.1 Kelvins
+  unsigned int intTempK =     myBQ27441.getInternalTemperature();   // Units of 0.1 Kelvins
   int          intTempC =     myBQ27441.getInternalTemperatureC();  // Units of 0.1 Kelvins
   int          intTempF =     myBQ27441.getInternalTemperatureF();  // Units of 0.1 Kelvins
-  int          battTempK =    myBQ27441.getTemperature();           // Units of 0.1 Kelvins
+  unsigned int battTempK =    myBQ27441.getTemperature();           // Units of 0.1 Kelvins
   int          battTempC =    myBQ27441.getTemperatureC();          // Units of 0.1 Kelvins
   int          battTempF =    myBQ27441.getTemperatureF();          // Units of 0.1 Kelvins
 

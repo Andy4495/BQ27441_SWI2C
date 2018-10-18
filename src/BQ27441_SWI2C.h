@@ -65,8 +65,8 @@ public:
   ~BQ27441_SWI2C();
   void begin();
   uint16_t getTemperature();                  // Result in 0.1 Kelvins
-  uint16_t getTemperatureC();                 // Result in 0.1 Celsius
-  uint16_t getTemperatureF();                 // Result in 0.1 Fahrenheit
+  int16_t  getTemperatureC();                 // Result in 0.1 Celsius
+  int16_t  getTemperatureF();                 // Result in 0.1 Fahrenheit
   uint16_t getVoltage();
   uint16_t getFlags();
   uint16_t getNominalAvailableCapacity();

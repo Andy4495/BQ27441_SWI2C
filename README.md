@@ -32,14 +32,14 @@ The library assumes an I2C device address of 0x55. If for some reason you need t
 
 #### Library Methods ####
 
-The library includes specific methods to read the various device values. 
+The library includes specific methods to read the various device values.
 
 Standard Commands (see [Technical Reference][3] Chapter 4.2 - 4.19):
 
     uint16_t getTemperature();                  // Result in 0.1 Kelvins
     uint16_t getTemperatureC();                 // Result in 0.1 Celsius
-    uint16_t getTemperatureF();                 // Result in 0.1 Fahrenheit
-    uint16_t getVoltage();
+    int16_t  getTemperatureF();                 // Result in 0.1 Fahrenheit
+    int16_t  getVoltage();
     uint16_t getFlags();
     uint16_t getNominalAvailableCapacity();
     uint16_t getFullAvailableCapacity();
