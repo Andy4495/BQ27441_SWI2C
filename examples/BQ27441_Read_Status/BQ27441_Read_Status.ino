@@ -29,7 +29,7 @@ void setupBQ27441(void)
 
   // Get device type and set lipo_status
   /// To be implemented later
-  bq27441_device_id = myBQ27441.getControlWord(BQ27441_CONTROL_DEVICE_TYPE);
+  bq27441_device_id = myBQ27441.getDeviceType();
 
   Serial.println("");
 
@@ -40,11 +40,11 @@ void setupBQ27441(void)
     Serial.println("  Check wiring and pin definitions and try again.");
     while (1) ;
   }
-  unsigned int controlStat =  myBQ27441.getControlWord(BQ27441_CONTROL_STATUS);
-  unsigned int fwVersion =    myBQ27441.getControlWord(BQ27441_CONTROL_FW_VERSION);
-  unsigned int dmCode =       myBQ27441.getControlWord(BQ27441_CONTROL_DM_CODE);
-  unsigned int prevMacW =     myBQ27441.getControlWord(BQ27441_CONTROL_PREV_MACWRITE);
-  unsigned int chemID =       myBQ27441.getControlWord(BQ27441_CONTROL_CHEM_ID);
+  unsigned int controlStat =  myBQ27441.getControlStatus();
+  unsigned int fwVersion =    myBQ27441.getFWVersion();
+  unsigned int dmCode =       myBQ27441.getDMCode();
+  unsigned int prevMacW =     myBQ27441.getPrevMacwrite();
+  unsigned int chemID =       myBQ27441.getChemID();
   Serial.println("BQ27441 Communication Established");
   Serial.println("---------------------------------");
   Serial.println("Control Word Values:");
@@ -68,17 +68,19 @@ void printBatteryStats()
   uint16_t data;
 
   // Read battery stats from the BQ27441-G1A
-  unsigned int soc =          myBQ27441.readRegister(BQ27441_COMMAND_SOC);
-  unsigned int volts =        myBQ27441.readRegister(BQ27441_COMMAND_VOLTAGE);
-  int          current =      (int) myBQ27441.readRegister(BQ27441_COMMAND_AVG_CURRENT);
-  unsigned int fullCapacity = myBQ27441.readRegister(BQ27441_COMMAND_FULL_CAPACITY);
-  unsigned int capacity =     myBQ27441.readRegister(BQ27441_COMMAND_REM_CAPACITY);
-  int          power =        (int) myBQ27441.readRegister(BQ27441_COMMAND_AVG_POWER);
-  int          health =       (int) myBQ27441.readRegister(BQ27441_COMMAND_SOH);
-  int          intTemp =      (int) myBQ27441.readRegister(BQ27441_COMMAND_INT_TEMP);  // Units of 0.1 Kelvins
-  intTemp =    (((intTemp - 2730) * 9) / 5) + 320;                                     // Convert to 0.1 Fahrenheit using integer math
-  int          battTemp =     (int) myBQ27441.readRegister(BQ27441_COMMAND_TEMP);      // Units of 0.1 Kelvins
-  battTemp =   (((battTemp - 2730) * 9) / 5) + 320;                                    // Convert to 0.1 Fahrenheit using integer math
+  unsigned int soc =          myBQ27441.getStateOfCharge();
+  unsigned int volts =        myBQ27441.getVoltage();
+  int          current =      myBQ27441.getAverageCurrent();
+  unsigned int fullCapacity = myBQ27441.getFullChargeCapacityFiltered();
+  unsigned int capacity =     myBQ27441.getRemainingCapacityFiltered();
+  int          power =        myBQ27441.getAveragePower();
+  int          health =       myBQ27441.getStateOfHealth();
+  int          intTempK =     myBQ27441.getInternalTemperature();   // Units of 0.1 Kelvins
+  int          intTempC =     myBQ27441.getInternalTemperatureC();  // Units of 0.1 Kelvins
+  int          intTempF =     myBQ27441.getInternalTemperatureF();  // Units of 0.1 Kelvins
+  int          battTempK =    myBQ27441.getTemperature();           // Units of 0.1 Kelvins
+  int          battTempC =    myBQ27441.getTemperatureC();          // Units of 0.1 Kelvins
+  int          battTempF =    myBQ27441.getTemperatureF();          // Units of 0.1 Kelvins
 
   Serial.print("State of charge (%):             ");
   Serial.println(soc);
@@ -94,14 +96,30 @@ void printBatteryStats()
   Serial.println(power);
   Serial.print("State of health (%):             ");
   Serial.println(health);
+  Serial.print("Internal temperature (K):        ");
+  Serial.print(intTempK / 10);
+  Serial.print(".");
+  Serial.println(intTempK % 10);
+  Serial.print("Internal temperature (C):        ");
+  Serial.print(intTempC / 10);
+  Serial.print(".");
+  Serial.println(intTempC % 10);
   Serial.print("Internal temperature (F):        ");
-  Serial.print(intTemp / 10);
+  Serial.print(intTempF / 10);
   Serial.print(".");
-  Serial.println(intTemp % 10);
+  Serial.println(intTempF % 10);
+  Serial.print("Battery temperature  (K):        ");
+  Serial.print(battTempK / 10);
+  Serial.print(".");
+  Serial.println(battTempK % 10);
+  Serial.print("Battery temperature  (C):        ");
+  Serial.print(battTempC / 10);
+  Serial.print(".");
+  Serial.println(battTempC % 10);
   Serial.print("Battery temperature  (F):        ");
-  Serial.print(battTemp / 10);
+  Serial.print(battTempF / 10);
   Serial.print(".");
-  Serial.println(battTemp % 10);
+  Serial.println(battTempF % 10);
   Serial.println("----");
 }
 
