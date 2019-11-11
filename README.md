@@ -92,5 +92,5 @@ References
 [2]:http://www.ti.com/lit/gpn/bq27441-g1
 [3]:http://www.ti.com/lit/pdf/sluuac9
 [4]:https://github.com/sparkfun/SparkFun_BQ27441_Arduino_Library
-[5]:https://gitlab.com/Andy4495/SWI2C
+[5]:https://github.com/Andy4495/SWI2C
 [6]:http://www.ti.com/lit/pdf/sluuap4

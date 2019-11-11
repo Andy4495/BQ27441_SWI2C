@@ -1,7 +1,7 @@
 /******************************************************************************
   BQ27441_SWI2C Library Example
 
-  https://gitlab.com/Andy4495/BQ27441_SWI2C
+  https://github.com/Andy4495/BQ27441_SWI2C
 
   Reads various battery stats every 10 seconds and prints to Serial.
 

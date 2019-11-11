@@ -1,9 +1,9 @@
 /* -----------------------------------------------------------------
    BQ27441_SWI2C Library
-   https://gitlab.com/Andy4495/BQ27441_SWI2C
+   https://github.com/Andy4495/BQ27441_SWI2C
 
    This library requires that the following library also be installed:
-   https://gitlab.com/Andy4495/SWI2C
+   https://github.com/Andy4495/SWI2C
 
 
    10/06/2018 - A.T. - Original
