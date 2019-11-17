@@ -23,7 +23,7 @@ Next, **instantiate** a BQ27441_SWI2C object.
 
 `sda_pin` is the pin number for the SDA signal, `scl_pin` is the pin number for the SCL signal.
 
-    BQ27441_SWI2C myBQ27441(uint8_t sda_pin, uint8_t scl_pin);
+    BQ27441_SWI2C myBQ27441(uint8_t sda_pin, uint8_t scl_pin);  // Default I2C address 0x55
 
 The library assumes an I2C device address of 0x55. If for some reason you need to use a different device address, then a third parameter can be used in the constructor:
 
