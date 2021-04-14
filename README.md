@@ -88,9 +88,16 @@ References
 + [SparkFun BQ27441 library][4] implemented with hardware I2C.
 + [SWI2C library][5].
 
+License
+-------
+
+The software and other files in this repository are released under what is commonly called the [MIT License][100]. See the file [`LICENSE`][101] in this repository.
+
 [1]:http://www.ti.com/product/bq27441-g1
 [2]:http://www.ti.com/lit/gpn/bq27441-g1
 [3]:http://www.ti.com/lit/pdf/sluuac9
 [4]:https://github.com/sparkfun/SparkFun_BQ27441_Arduino_Library
 [5]:https://github.com/Andy4495/SWI2C
 [6]:http://www.ti.com/lit/pdf/sluuap4
+[100]: https://choosealicense.com/licenses/mit/
+[101]: ./LICENSE
