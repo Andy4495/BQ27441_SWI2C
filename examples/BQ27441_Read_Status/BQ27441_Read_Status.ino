@@ -65,8 +65,6 @@ void setupBQ27441(void)
 
 void printBatteryStats()
 {
-  uint16_t data;
-
   // Read battery stats from the BQ27441-G1A
   unsigned int soc =          myBQ27441.getStateOfCharge();
   unsigned int volts =        myBQ27441.getVoltage();
