@@ -60,6 +60,8 @@ void setupBQ27441(void)
   Serial.println(prevMacW, HEX);
   Serial.print("Chemical ID:                     0x");
   Serial.println(chemID, HEX);
+  Serial.print("Clock stretch timeout:             ");
+  Serial.println(myBQ27441.getSWI2CObject()->getStretchTimeout());
   Serial.println("======================================");
 }
 

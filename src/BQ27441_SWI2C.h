@@ -98,9 +98,11 @@ public:
   uint16_t getPrevMacwrite();
   uint16_t getChemID();
 
-
   uint16_t readRegister(uint8_t regAddress);
   uint16_t getControlWord(uint8_t subCommand);
+
+  SWI2C*   getSWI2CObject();
+
 private:
   SWI2C* myDevice;
 };

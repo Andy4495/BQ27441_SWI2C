@@ -10,27 +10,31 @@ This library depends on a specific [SWI2C library][5].
 
 _Be sure to review the example sketch included with the library._
 
-First, **include** the library header file:
+1. Install the [SWI2C][5] library in addition to this library.
 
-```cpp
-#include <BQ27441_SWI2C.h>
-```
+2. **Include** the library header file:
 
-Note that this library depends on the [SWI2C][5] library.
+    ```cpp
+    #include <BQ27441_SWI2C.h>
+    ```
 
-Next, **instantiate** a BQ27441_SWI2C object.
+    Note that this library depends on the [SWI2C][5] library.
 
-`sda_pin` is the pin number for the SDA signal, `scl_pin` is the pin number for the SCL signal.
+3. **Instantiate** a BQ27441_SWI2C object.
 
-```cpp
-BQ27441_SWI2C myBQ27441(uint8_t sda_pin, uint8_t scl_pin);  // Default I2C address 0x55
-```
+    `sda_pin` is the pin number for the SDA signal, `scl_pin` is the pin number for the SCL signal.
 
-The library assumes an I2C device address of 0x55. If for some reason you need to use a different device address, then a third parameter can be used in the constructor:
+    ```cpp
+    BQ27441_SWI2C myBQ27441(uint8_t sda_pin, uint8_t scl_pin);  // Default I2C address 0x55
+    ```
 
-```cpp
-BQ27441_SWI2C myBQ27441(uint8_t sda_pin, uint8_t scl_pin, uint8_t device_address);
-```
+    The library assumes an I2C device address of 0x55. If for some reason you need to use a different device address, then a third parameter can be used in the constructor:
+
+    ```cpp
+    BQ27441_SWI2C myBQ27441(uint8_t sda_pin, uint8_t scl_pin, uint8_t device_address);
+    ```
+
+4. Access the various device registers using the library methods listed below.
 
 ### Library Methods
 
@@ -83,6 +87,12 @@ uint16_t getChemID();
 ```
 
 Since this library was designed as a simple interface to use software I2C to access battery status (e.g. voltage, current, temperature), other commands which configure or control the BQ27441 are left unimplemented.
+
+The library also provides access to the underlying `SWI2C` oject and its [public methods][5]. This can be useful for debugging and other specialized situations:
+
+```cpp
+SWI2C*   getSWI2CObject();
+```
 
 ## References
 

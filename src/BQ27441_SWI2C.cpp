@@ -291,3 +291,7 @@ uint16_t BQ27441_SWI2C::getControlWord(uint8_t subCommand) {
 
   return result;
 }
+
+SWI2C*   BQ27441_SWI2C::getSWI2CObject() {
+  return myDevice;
+}
