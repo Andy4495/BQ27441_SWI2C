@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
-      - uses: arduino/compile-sketches@main
+      - uses: Andy4495/compile-sketches@main
         with:
 #          fqbn: 'energia:msp430:msp430g2553'
           fqbn: 'SparkFun:avr:RedBoard'
