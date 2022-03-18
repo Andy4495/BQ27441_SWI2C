@@ -12,7 +12,10 @@ jobs:
       - uses: actions/checkout@main
       - uses: arduino/compile-sketches@v1
         with:
-          fqbn: 'arduino:avr:uno'
+          fqbn: 'energia:msp430:msp430g2553'
+          platforms: |
+            - name: "energia:msp430"
+            - source-url: http://energia.nu/packages/package_energia_index.json
           sketch-paths: |
             - .
           verbose: true
