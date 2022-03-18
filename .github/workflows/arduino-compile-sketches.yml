@@ -12,10 +12,11 @@ jobs:
       - uses: actions/checkout@main
       - uses: arduino/compile-sketches@v1
         with:
-          fqbn: 'energia:msp430:msp430g2553'
+#          fqbn: 'energia:msp430:msp430g2553'
+          fqbn: 'SparkFun:avr:RedBoard'
           platforms: |
-            - source-url: https://github.com/energia/msp430-lg-core/archive/refs/tags/1.0.7.zip
-            - name: "energia:msp430"
+            - source-url: "https://raw.githubusercontent.com/sparkfun/Arduino_Boards/master/IDE_Board_Manager/package_sparkfun_index.json"
+            - name: "SparkFun:avr"
           sketch-paths: |
             - .
           verbose: true
