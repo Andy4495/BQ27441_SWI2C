@@ -15,8 +15,8 @@ jobs:
 #          fqbn: 'energia:msp430:msp430g2553'
           fqbn: 'SparkFun:avr:RedBoard'
           platforms: |
-            - source-url: "https://raw.githubusercontent.com/sparkfun/Arduino_Boards/master/IDE_Board_Manager/package_sparkfun_index.json"
-            - name: "SparkFun:avr"
+           - name: "SparkFun:avr"
+           - source-url: "https://raw.githubusercontent.com/sparkfun/Arduino_Boards/master/IDE_Board_Manager/package_sparkfun_index.json"
           sketch-paths: |
             - .
           verbose: true
