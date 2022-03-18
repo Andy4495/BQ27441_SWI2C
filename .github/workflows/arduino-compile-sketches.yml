@@ -15,6 +15,7 @@ jobs:
           fqbn: 'energia:msp430:msp430g2553'
           platforms: |
             - name: "energia:msp430"
+            - version: 1.0.5
             - source-url: http://energia.nu/packages/package_energia_index.json
           sketch-paths: |
             - .
