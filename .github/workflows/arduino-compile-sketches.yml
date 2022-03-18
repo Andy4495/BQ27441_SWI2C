@@ -20,8 +20,8 @@ jobs:
            - source-url: "https://raw.githubusercontent.com/sparkfun/Arduino_Boards/master/IDE_Board_Manager/package_sparkfun_index.json"
           sketch-paths: |
             - .
-          verbose: true
-          enable-warnings-report: true
+#          verbose: true
+#          enable-warnings-report: true
           libraries: |
             - source-path: ./
             - source-url: https://github.com/Andy4495/SWI2C.git
