@@ -10,18 +10,11 @@
 #include <SWI2C.h>            // Need this since BQ27441_SWI2C uses it
 #include <BQ27441_SWI2C.h>
 
-// Change the following depending on your board type.
-#define BOARD_LED RED_LED
-
-
 // Change the following 2 defines to the pins you using to access BQ27441
 #define SW_SCL  9
 #define SW_SDA 10
 
-
 BQ27441_SWI2C myBQ27441(SW_SDA, SW_SCL);
-
-int led_status = 0;
 
 void setupBQ27441(void)
 {
@@ -130,14 +123,10 @@ void setup()
   Serial.println("");
   Serial.println("BQ27441 over Software I2C");
   setupBQ27441();
-
-  pinMode(BOARD_LED, OUTPUT);
 }
 
 void loop()
 {
-  led_status = ~led_status;
-  digitalWrite(BOARD_LED, led_status);
   printBatteryStats();
   delay(10000);
 }
