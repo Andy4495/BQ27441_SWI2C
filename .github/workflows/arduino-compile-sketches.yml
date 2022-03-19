@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@main
       - uses: Andy4495/compile-sketches@main
         with:
-          fqbn: 'energia:msp430:msp430g2553'
+          fqbn: 'energia:msp430:MSP-EXP430G2'
           platforms: |
             - name: 'energia:msp430'
             - version: latest
