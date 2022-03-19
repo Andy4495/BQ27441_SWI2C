@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
 #      - uses: Andy4495/compile-sketches@main
-       - uses: arduino/compile-sketches@v1
+      - uses: arduino/compile-sketches@v1
         with:
           fqbn: 'energia:msp430:MSP-EXP430G2553LP'
           platforms: |
