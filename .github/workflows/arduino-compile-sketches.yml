@@ -5,7 +5,11 @@ name: Arduino Compile Sketches
 on: 
   push:
   workflow_dispatch:
-
+    inputs:
+      message:
+        description: Message to display in job summary
+        required: false
+        type: string
 jobs:
   compile-sketches: 
     runs-on: ubuntu-latest
@@ -20,3 +24,7 @@ jobs:
           libraries: |
             - source-path: ./
             - source-url: https://github.com/Andy4495/SWI2C.git
+      - name: Print the job summary
+        if: ${{ inputs.message != null }}
+        run: |
+          echo ${{ inputs.message }} >$GITHUB_STEP_SUMMARY
