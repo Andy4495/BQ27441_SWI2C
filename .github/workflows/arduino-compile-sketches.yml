@@ -42,6 +42,6 @@ jobs:
             - source-path: ./
             - source-url: https://github.com/Andy4495/SWI2C.git
       - name: Print the job summary
-        if: ${{ inputs.message != null }}
+        if: ${{ inputs.message }}
         run: |
           echo ${{ inputs.message }} >$GITHUB_STEP_SUMMARY
