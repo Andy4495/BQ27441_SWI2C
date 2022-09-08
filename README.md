@@ -118,4 +118,4 @@ The software and other files in this repository are released under what is commo
 [6]:http://www.ti.com/lit/pdf/sluuap4
 [100]: https://choosealicense.com/licenses/mit/
 [101]: ./LICENSE
-[200]: https://github.com/Andy4495/BQ27441_SWI2C
+[//]: # ([200]: https://github.com/Andy4495/BQ27441_SWI2C)
