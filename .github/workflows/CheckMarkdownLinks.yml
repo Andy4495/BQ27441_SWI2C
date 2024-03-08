@@ -5,8 +5,10 @@ name: Check Markdown Links
 on: 
   push:
   schedule:
-    # Run 4th day of every month at 4:49 AM (See https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)
-    - cron: "49 4 4 * *"
+    # Run monthly 
+    # GitHub actions uses UTC for time zone
+    # crontab format: minute hour day-of-month month day-of-week
+    - cron: "4 4 4 * *"
   workflow_dispatch:
     inputs:
       message:
