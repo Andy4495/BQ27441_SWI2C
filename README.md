@@ -1,7 +1,7 @@
 # BQ27441_SWI2C Library
 
 [![Arduino Compile Sketches](https://github.com/Andy4495/BQ27441_SWI2C/actions/workflows/arduino-compile-sketches.yml/badge.svg)](https://github.com/Andy4495/BQ27441_SWI2C/actions/workflows/arduino-compile-sketches.yml)
-[![Check Markdown Links](https://github.com/Andy4495/BQ27441_SWI2C/actions/workflows/CheckMarkdownLinks.yml/badge.svg)](https://github.com/Andy4495/BQ27441_SWI2C/actions/workflows/CheckMarkdownLinks.yml)
+[![Check Markdown Links](https://github.com/Andy4495/BQ27441_SWI2C/actions/workflows/check-links.yml/badge.svg)](https://github.com/Andy4495/BQ27441_SWI2C/actions/workflows/check-links.yml)
 
 This library interfaces with the Texas Instruments BQ27441 Battery [Fuel Gauge][1] using software (bit-bang) I2C. This allows the device to be connected to any two available I/O pins instead of the hardware-specific I2C peripheral pins on your microcontroller.
 
