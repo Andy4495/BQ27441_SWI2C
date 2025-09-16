@@ -14,7 +14,7 @@
 #define BQ27441_SWI2C_H
 
 #include "Arduino.h"
-#include <SWI2C.h>
+#include <SWI2C.h>        // https://github.com/Andy4495/SWI2C
 
 /*****************************************************************************/
 // BQ27441 Device definitions
